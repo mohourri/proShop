@@ -16,7 +16,7 @@ const ProductRating = ({ratingValue, reviews, color}) => {
                  <i style={{color}} className={ratingValue>= 4? 'fas fa-star ':ratingValue>=3.5? 'fas fa-star-half-alt ' : 'far fa-star '}></i>
             </span>
             <span>
-                 <i style={{color}} className={ratingValue>= 5? 'fas fa-star ':ratingValue>=4.5? 'fas fa-star-half-alt ' : 'far fa-star '}> </i>
+                 <i style={{color}} className={ratingValue>= 5? 'fas fa-star ':ratingValue>=4.5? 'fas fa-star-half-alt ' : 'far fa-star '}>&nbsp;</i>
             </span>
             <span>
                 {
@@ -28,7 +28,7 @@ const ProductRating = ({ratingValue, reviews, color}) => {
 }
 
 ProductRating.defaultProps ={
-    color:'grey'
+    color:'#FF9529'
 }
 
 export default ProductRating

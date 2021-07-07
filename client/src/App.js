@@ -1,22 +1,25 @@
-import Header from './components/header/Header'
-import Footer from './components/footer/Footer'
-import {Container } from 'react-bootstrap'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Home from './pages/Home-page'
-import ProductPage from './pages/Product-page'
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
     <Router>
-      <Header/>
-      <Container>
-        <main>
-          <Route path='/' component={Home} exact/>
+      <Header />
+
+      <main>
+        <Container>
+          <Route path='/' component={Home} exact />
           <Route path='/product/:id' component={ProductPage} />
-        </main>
-      </Container>
-            
-      <Footer/>
+          <Route path='/cart/:id?' component={CartPage} />
+        </Container>
+      </main>
+
+      <Footer />
     </Router>
   );
 }

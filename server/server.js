@@ -1,21 +1,27 @@
-const express = require("express");
-const dotenv = require("dotenv");
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.config.js";
+import colors from "colors";
+import productRoutes from "./routes/product_routes.js";
+import userRoutes from "./routes/user_routes.js";
+import { notFound, errorHandler } from "./midlewares/errorMiddleware.js";
 dotenv.config();
-const products = require("./data/products");
 const app = express();
-const connectDB = require("./config/db.config");
+app.use(express.json());
 connectDB();
-const colors = require("colors");
-const productRoutes = require("./routes/product_routes");
 
 const PORT = process.env.PORT;
 const ENV = process.env.NODE_ENV;
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("server is running...".green.inverse);
 });
+
+app.use(errorHandler);
+app.use(notFound);
 
 app.listen(
   PORT,
